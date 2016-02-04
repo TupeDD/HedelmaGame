@@ -1,4 +1,4 @@
-var raha = 50;
+var raha = 30;
 var panos = 0;
 
 var apple = "content/apple.jpg";
@@ -9,22 +9,11 @@ var fruits1 = [apple, banana, watermelon];
 var fruits2 = [watermelon, banana, apple];
 var fruits3 = [banana, apple, watermelon];
 
-var rand1 = fruits1[Math.floor(Math.random() * fruits1.length)];
-var rand2 = fruits2[Math.floor(Math.random() * fruits2.length)];
-var rand3 = fruits3[Math.floor(Math.random() * fruits3.length)];
-
-
-
 function pelaa() {
-  update();
   if (raha >= 10) {
     if (panos >= 10) {
       if (raha >= panos) {
-        document.getElementById("fruit1").src = rand1;
-        document.getElementById("fruit2").src = rand2;
-        document.getElementById("fruit3").src = rand3;
         peli();
-        update();
       }
       else {
         alert("You dont have enough money.");
@@ -45,6 +34,7 @@ function pelaa() {
 
 function update(){
   document.getElementById('raha').innerHTML = raha;
+  document.getElementById('info').innerHTML = "";
 }
 
 function vaihdaPanos(uusiPanos){
@@ -69,25 +59,39 @@ function vaihdaPanos(uusiPanos){
 }
 
 function peli() {
+  var rand1 = fruits1[Math.floor(Math.random() * fruits1.length)];
+  var rand2 = fruits2[Math.floor(Math.random() * fruits2.length)];
+  var rand3 = fruits3[Math.floor(Math.random() * fruits3.length)];
+
+  document.getElementById("fruit1").src = rand1;
+  document.getElementById("fruit2").src = rand2;
+  document.getElementById("fruit3").src = rand3;
   update();
+
   if(rand1 == rand2 && rand2 == rand3) {
-    raha += (panos * 10);
-    update();
-    alert("You won the JACKPOT !!!!!!!");
-  }
-  else if (rand1 == rand2 || rand2 == rand3 || rand3 == rand1) {
+    raha = (raha - panos);
     raha += (panos * 5);
     update();
-    alert("You won semi jackpot, nice!");
+    document.getElementById('info').innerHTML = str.fontcolor("green");
+    document.getElementById('info').innerHTML = "You won the JACKPOT!!!";
+  }
+  else if (rand1 == rand2 || rand2 == rand3 || rand3 == rand1) {
+    raha = (raha - panos);
+    raha += (panos * 2.5);
+    update();
+    document.getElementById('info').innerHTML = "You got two same!";
   }
   else {
-    raha -= panos;
+    raha = (raha - panos);
     update();
-    alert("You didn't win, sry...");
+    document.getElementById('info').innerHTML = "You didn't won, sry...";
     if (raha < 10) {
       alert("Game Over");
       if (confirm("Do you want to play again?") == true) {
         location.reload();
+      }
+      else {
+        document.body.style.background = "black url('gameover.jpg') no-repeat center";
       }
     }
   }
