@@ -6,8 +6,8 @@ var banana = "content/banana.jpg";
 var watermelon = "content/watermelon.jpg";
 
 var fruits1 = [apple, banana, watermelon];
-var fruits2 = [watermelon, banana, apple];
-var fruits3 = [banana, apple, watermelon];
+var fruits2 = [apple, banana, watermelon];
+var fruits3 = [apple, banana, watermelon];
 
 function pelaa() {
   if (raha >= 10) {
@@ -72,8 +72,7 @@ function peli() {
     raha = (raha - panos);
     raha += (panos * 5);
     update();
-    document.getElementById('info').innerHTML = str.fontcolor("green");
-    document.getElementById('info').innerHTML = "You won the JACKPOT!!!";
+    document.getElementById('info').innerHTML = "OMG JACKPOT!!!";
   }
   else if (rand1 == rand2 || rand2 == rand3 || rand3 == rand1) {
     raha = (raha - panos);
@@ -84,14 +83,14 @@ function peli() {
   else {
     raha = (raha - panos);
     update();
-    document.getElementById('info').innerHTML = "You didn't won, sry...";
+    document.getElementById('info').innerHTML = "No win sry...";
     if (raha < 10) {
       alert("Game Over");
       if (confirm("Do you want to play again?") == true) {
         location.reload();
       }
       else {
-        document.body.style.background = "black url('gameover.jpg') no-repeat center";
+        document.body.style.backgroundImage = "url('content/gameover.jpg')";
       }
     }
   }

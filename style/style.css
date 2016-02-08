@@ -1,10 +1,10 @@
 div.kerroin {
   text-align: center;
   border: 2px solid #808080;
-  margin-left: 140px;
+  margin-left: 160px;
   padding: 5px;
   width: 280px;
-  height: 155px;
+  height: 150px;
 }
 div.kerroin, .pisteet {
   text-align: center;
@@ -12,16 +12,16 @@ div.kerroin, .pisteet {
 }
 div.kerroin button {
   margin: 5px;
-  width: 100px;
+  width: 200px;
 }
 div.pisteet {
   border: 2px solid #808080;
+  width: 270px;
   float: right;
-  margin-right: 140px;
+  margin-right: 160px;
   display: inline;
-  padding: 0px 5px 0px 5px;
-  width: 280x;
-  height: 165px;
+  padding: 0px 10px 0px 10px;
+  height: 160px;
 }
 div.peli {
   margin: 10px;
@@ -59,27 +59,30 @@ h3 {
 body {
   background-color: black;
 }
-#info {
-
-}
 #raha {
   color: white;
   font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
   padding-left: 10px;
   border-bottom: 2px solid white;
-  border-left: 2px solid white;
-  font-size: 60px;
+  font-size: 55px;
 }
 #pisteet {
   color: #8c8c8c;
   border-bottom: 1px solid white;
-  font-size: 60px;
+  border-right: 2px solid white;
+  font-size: 55px;
 }
 #pisteet, #raha {
   display: inline;
 }
+#bank {
+  background: url(content/nordea.png);
+  top: 0px;
+  float: right;
+}
+
 #footer {
-  position: absolute;;
+  position: absolute;
   bottom: 0px;
   background-color: black;
   width: 100%;
